@@ -1,16 +1,28 @@
-import React from "react"
+import React, { Suspense, lazy } from "react"
 import ReactDOM from "react-dom"
 import { Provider } from "react-redux"
-import { BrowserRouter as Router, Route } from "react-router-dom"
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom"
 import "./index.css"
-import App from "./App"
 import store from "./store"
 import * as serviceWorker from "./serviceWorker"
+
+const pages = ["page-1", "page-2"]
 
 ReactDOM.render(
   <Provider store={store}>
     <Router>
-      <Route exact path="/" component={App} />
+      <Suspense fallback={<div>Loading...</div>}>
+        <Switch>
+          <Route exact path="/" component={lazy(() => import("./page-1"))} />
+          {pages.map(page => (
+            <Route
+              key={page}
+              path={`/${page}`}
+              component={lazy(() => import(`./${page}`))}
+            />
+          ))}
+        </Switch>
+      </Suspense>
     </Router>
   </Provider>,
 
