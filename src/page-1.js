@@ -4,9 +4,32 @@ import { connect } from "react-redux"
 import * as actions from "./actions"
 import logo from "./logo.svg"
 import "./App.css"
+import axios from "axios"
+const { createApolloFetch } = require("apollo-fetch")
+
+const fetch = createApolloFetch({
+  uri: "https://countries.trevorblades.com/",
+})
 
 function App(props) {
   const { accumulator, increment, decrement } = props
+  fetch({
+    query: `{
+      countries {
+        name
+        currency
+        phone
+        languages {
+          name
+          native
+        }
+      }
+    }`,
+  }).then(res => {
+    const { countries } = res.data
+    console.log(2020, countries)
+  })
+
   return (
     <div className="App">
       <Helmet>
