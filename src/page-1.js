@@ -8,7 +8,6 @@ import "./App.css"
 class Page extends React.Component {
   render() {
     const { accumulator, increment, decrement, countries } = this.props
-
     return (
       <div className="App">
         <Helmet>
