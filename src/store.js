@@ -1,8 +1,8 @@
 import { applyMiddleware, createStore } from "redux"
 import logger from "redux-logger"
 import thunk from "redux-thunk"
-import allReducers from "./reducers"
 import reduxPromise from "redux-promise"
+import allReducers from "./reducers"
 
 let middleware
 
