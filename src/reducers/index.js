@@ -11,19 +11,8 @@ const accumulator = (state = 0, action) => {
   }
 }
 
-const countries = (state = [], action) => {
-  switch (action.type) {
-    case "FETCH_AND_UPDATE_COUNTRIES": {
-      return action.countries
-    }
-    default:
-      return state
-  }
-}
-
 const allReducers = combineReducers({
   accumulator,
-  countries,
 })
 
 export default allReducers
