@@ -1,8 +1,8 @@
 # Worst Boilerplate Ever!
 
 - Bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-- React Router
-- Redux
+- Redux, Redux logger
+- React Router, React lazy load
 - React Helmet
 - Graphql
 
