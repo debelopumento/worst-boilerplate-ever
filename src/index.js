@@ -6,7 +6,7 @@ import "./index.css"
 import store from "./store"
 import * as serviceWorker from "./serviceWorker"
 
-const pages = ["page-1", "page-2"]
+const pages = ["page-1", "page-2", 'page-3']
 
 ReactDOM.render(
   <Provider store={store}>
