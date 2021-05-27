@@ -6,7 +6,7 @@ import "./index.css"
 import store from "./store"
 import * as serviceWorker from "./serviceWorker"
 
-const pages = ["page-1", "page-2"]
+const pages = ["page-1", "page-2", 'topics']
 
 ReactDOM.render(
   <Provider store={store}>
@@ -18,6 +18,7 @@ ReactDOM.render(
             <Route
               key={page}
               path={`/${page}`}
+              // component={lazy(() => import(`./${page}`))}
               component={lazy(() => import(`./${page}`))}
             />
           ))}
@@ -28,6 +29,8 @@ ReactDOM.render(
 
   document.getElementById("root"),
 )
+
+
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
